@@ -1,0 +1,480 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yash World | Official Website</title>
+
+  <style>
+    * {
+      margin: 10;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #0b1020;
+      --card: #151d33;
+      --text: #f4f7ff;
+      --accent: #38bdf8;
+      --muted: #a8b3cc;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: 0.3s;
+    }
+
+    body.light {
+      --bg: #f4f7ff;
+      --card: #ffffff;
+      --text: #172033;
+      --accent: #087cc1;
+      --muted: #596579;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--card);
+      padding: 16px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      box-shadow: 0 3px 20px #0002;
+    }
+
+    .logo {
+      font-size: 50px;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    button, .btn {
+      background: var(--accent);
+      color: #07111e;
+      padding: 11px 18px;
+      border: red;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .hero {
+      min-height: 80vh;
+      padding: 90px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background:
+        radial-gradient(circle at 85% 20%, #2563eb55, transparent 35%),
+        radial-gradient(circle at 15% 90%, #9333ea44, transparent 35%);
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 76px);
+      line-height: 1.1;
+      margin: 18px 0;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 28px;
+      font-size: 18px;
+    }
+
+    section {
+      padding: 75px 8%;
+    }
+
+    .section-title {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 28px;
+      border-radius: 15px;
+      border: 1px solid #64748b33;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      margin: 12px 0;
+      color: var(--accent);
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .emoji {
+      font-size: 38px;
+    }
+
+    .about {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 35px;
+      max-width: 2000px;
+      margin: auto;
+    }
+
+    .search-box {
+      display: block;
+      width: 100%;
+      max-width: 550px;
+      padding: 15px;
+      margin: 20px auto;
+      border: 2px solid #64748b55;
+      border-radius: 10px;
+      background: var(--card);
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      display: grid;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid #64748b66;
+      border-radius: 8px;
+      font: inherit;
+    }
+
+    .contact-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    #formMessage {
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: var(--card);
+      color: var(--muted);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: 65vh;
+        padding: 65px 6%;
+      }
+
+      section {
+        padding: 55px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">YASH hingole world computer</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button id="themeButton" type="button"> Theme</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <p>WELCOME TO MY DIGITAL WORLD</p>
+
+      <h1>Build Your <span>Digital Future.</span></h1>
+
+      <p>
+        Discover creative projects, modern technology,
+        web development and amazing digital experiences
+        in one place.
+      </p>
+
+      <div>
+        <a href="#projects" class="btn">Explore Projects</a>
+        <a href="#contact" class="btn">Contact Me</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">Get to know this website</p>
+
+      <div class="about">
+        <h3>Welcome to Yash World!</h3>
+        <p>
+          This is my personal website where I can share
+          my interests, creative ideas, technology projects
+          and web development experiments.
+        </p>
+        <br>
+        <p>
+          My goal is to learn new skills, build useful
+          projects and explore the digital world.
+        </p>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">My Services</h2>
+      <p class="section-subtitle">
+        Things you can showcase on your website
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="emoji">💻</div>
+          <h3>Web Development</h3>
+          <p>Modern and responsive website designs.</p>
+        </article>
+
+        <article class="card">
+          <div class="emoji">🎮🕹️👾</div>
+          <h3>Game Projects</h3>
+          <p>Showcase your game ideas and creations.</p>
+        </article>
+
+        <article class="card">
+          <div class="emoji">ooooo</div>
+          <h3>Video Editing</h3>
+          <p>Display your creative video editing work.</p>
+        </article>
+
+        <article class="card">
+          <div class="emoji">🚀</div>
+          <h3>New Ideas</h3>
+          <p>Explore experiments and future projects.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">My Projects</h2>
+      <p class="section-subtitle">
+        Search through the sample project cards
+      </p>
+
+      <input
+        class="search-box"
+        id="searchInput"
+        type="search"
+        placeholder="Search projects..."
+        aria-label="Search projects"
+      >
+
+      <div class="grid" id="projectGrid">
+        <article class="card project">
+          <div class="emoji">🌐</div>
+          <h3>Website Design</h3>
+          <p>A responsive website made with HTML and CSS.</p>
+        </article>
+
+        <article class="card project">
+          <div class="emoji">🎮</div>
+          <h3>Gaming Project</h3>
+          <p>A place to showcase gaming ideas and videos.</p>
+        </article>
+
+        <article class="card project">
+          <div class="emoji">⚡</div>
+          <h3>JavaScript App</h3>
+          <p>A sample project using JavaScript features.</p>
+        </article>
+
+        <article class="card project">
+          <div class="emoji">🎨</div>
+          <h3>Creative Design</h3>
+          <p>A collection of digital design experiments.</p>
+        </article>
+
+        <article class="card project">
+          <div class="emoji">📱</div>
+          <h3>Mobile Layout</h3>
+          <p>A layout that adapts to different screen sizes.</p>
+        </article>
+
+        <article class="card project">
+          <div class="emoji">🤖</div>
+          <h3>Future Technology</h3>
+          <p>A section for technology ideas and experiments.</p>
+        </article>
+      </div>
+
+      <p id="noResults" class="hidden" style="text-align:center">
+        No matching projects found.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact Me</h2>
+      <p class="section-subtitle">
+        Try this sample contact form
+      </p>
+
+      <form class="contact-form" id="contactForm">
+        <input
+          type="text"
+          id="visitorName"
+          placeholder="Your work"
+          required
+        >
+
+        <input
+          type="email"
+          id="visitorEmail"
+          placeholder="Your google account"
+          required
+        >
+
+        <textarea
+          id="visitorMessage"
+          placeholder="Write your message..."
+          required
+        ></textarea>
+
+        <button type="submit">Submit Message</button>
+
+        <p id="formMessage" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Yash World. All rights reserved.</p>
+    <p>Made with HTML, CSS and JavaScript.</p>
+  </footer>
+
+  <script>
+    // Update the copyright year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Dark and light theme
+    const themeButton = document.getElementById("themeButton");
+
+    themeButton.addEventListener("click", function () {
+      document.body.classList.toggle("light");
+
+      themeButton.textContent =
+        document.body.classList.contains("light")
+          ? "🌙 Dark Mode"
+          : "☀️ Light Mode";
+    });
+
+    // Search projects
+    const searchInput = document.getElementById("searchInput");
+    const projects = document.querySelectorAll(".project");
+    const noResults = document.getElementById("noResults");
+
+    searchInput.addEventListener("input", function () {
+      const query = searchInput.value.toLowerCase();
+      let visibleCount = 0;
+
+      projects.forEach(function (project) {
+        const matches =
+          project.textContent.toLowerCase().includes(query);
+
+        project.classList.toggle("hidden", !matches);
+
+        if (matches) visibleCount++;
+      });
+
+      noResults.classList.toggle("hidden", visibleCount > 0);
+    });
+
+    // Demo contact form
+    document.getElementById("contactForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name =
+          document.getElementById("visitorName").value.trim();
+
+        document.getElementById("formMessage").textContent =
+          "Thank you, " + name +
+          "! This is a demo form. No message was sent.";
+
+        this.reset();
+      });
+  </script>
+
+</body>
+</html>
